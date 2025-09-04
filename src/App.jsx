@@ -6,8 +6,8 @@ export function App() {
   const [settings, setSettings] = useState(false);
   const [startPause, setStartPause] = useState(false);
   const [timerSelected, setTimerSelected] = useState('1');
-  const [min, setMin] = useState(25);
-  const [sec, setSec] = useState(0)
+  let [min, setMin] = useState(25);
+  let [sec, setSec] = useState(0)
 
   const [pomodoro, setPomodoro] = useState(25);
   const [shortBreak, setShortBreak] = useState(5);
@@ -106,24 +106,28 @@ export function App() {
             </button>
           </div>
 
-          <div style={{ backgroundColor: `${clockColor}` }} className="clock">
-            <div>
-              <div className="count-down">
-                {min >= 10 ? min : `0${min}`}:{sec >= 10 ? sec : `0${sec}`}
-              </div>
+          <div className='clock-container'>
+            <div style={{ backgroundColor: `${clockColor}` }} className="clock">
+              <div>
+                <div className="count-down">
+                  {min > 60 ? min = 60 : min >= 10? min : `0${min}`}
+                  :
+                  {sec > 60 ? sec = 60 : sec >= 10? sec : `0${sec}`}
+                </div>
 
-              <div className="ctrl">
-                {!startPause && <span onClick={() => {
-                  setStartPause(true);
-                }}>
-                  Start
-                </span>}
+                <div className="ctrl">
+                  {!startPause && <span onClick={() => {
+                    setStartPause(true);
+                  }}>
+                    Start
+                  </span>}
 
-                {startPause && <span onClick={() => {
-                  setStartPause(false);
-                }}>
-                  Pause
-                </span>}
+                  {startPause && <span onClick={() => {
+                    setStartPause(false);
+                  }}>
+                    Pause
+                  </span>}
+                </div>
               </div>
             </div>
           </div>
@@ -218,8 +222,8 @@ export function App() {
                   Aa
                 </div>
 
-                <div style={{ fontFamily: 'fantasy' }} id={`third-font-${fontSelected}`} className="font-3" onClick={() => {
-                  document.body.style.fontFamily = 'fantasy';
+                <div style={{ fontFamily: 'sans-serit' }} id={`third-font-${fontSelected}`} className="font-3" onClick={() => {
+                  document.body.style.fontFamily = 'sans-serit';
 
                   setFontSelected('3');
 
