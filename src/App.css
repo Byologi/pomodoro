@@ -129,7 +129,7 @@ padding: 0;
 /* SETTINGS STYLES */
 
 .settings-container{
-  width: 100%;
+  width: 100;
   max-width: 600px;
   margin: 0 auto;
   padding: 0;
@@ -140,20 +140,22 @@ padding: 0;
     padding: 20px;
 
   }
-
+}
+@media (max-width: 480px) {
   .settings .break-types {
     display: flex;
-    flex-wrap: wrap;      /* wrap inputs to next line */
-    gap: 8px;             /* smaller gap on mobile */
-    padding: 10px 15px;   /* reduce padding */
-    justify-content: center;
+    flex-wrap: wrap;        /* allow wrapping */
+    gap: 10px;              /* spacing between buttons */
+    justify-content: center; /* center all items on each line */
+    padding: 0;             /* remove side padding that causes misalignment */
+    box-sizing: border-box;
   }
 
   .settings .break-types input {
-    flex: 1 1 80px;       /* allow input to shrink */
-    max-width: 100%;       /* don’t overflow container */
-    padding: 8px;
+    width: 100px;           /* keep original size */
+    padding: 8px;           /* optional smaller padding */
     font-size: 14px;
+    box-sizing: border-box;
   }
 }
 
