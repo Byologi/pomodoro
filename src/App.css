@@ -131,6 +131,13 @@ padding: 0;
 .settings-container{
   width: fit-content;
   margin: 0 auto;
+  padding: 0;
+}
+
+@media(max-width: 768px){
+  .settings-container{
+    padding: 20px;
+  }
 }
 
 .settings{
