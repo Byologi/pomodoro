@@ -20,6 +20,13 @@ display: flex;
 align-items: center;
 justify-content: center;
 color: antiquewhite;
+padding: 0;
+}
+
+@media(max-width: 768px){
+  .home-page{
+    padding: 16px;
+  }
 }
 
 .home-page .home #txt{
