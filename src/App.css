@@ -140,6 +140,21 @@ padding: 0;
     padding: 20px;
 
   }
+
+  .settings .break-types {
+    display: flex;
+    flex-wrap: wrap;      /* wrap inputs to next line */
+    gap: 8px;             /* smaller gap on mobile */
+    padding: 10px 15px;   /* reduce padding */
+    justify-content: center;
+  }
+
+  .settings .break-types input {
+    flex: 1 1 80px;       /* allow input to shrink */
+    max-width: 100%;       /* don’t overflow container */
+    padding: 8px;
+    font-size: 14px;
+  }
 }
 
 .settings{
@@ -148,6 +163,8 @@ padding: 0;
   background-color: white;
   margin: 20px auto;
   border-radius: 30px;
+  box-sizing: border-box;
+  padding: 20px;
 
 }
 
