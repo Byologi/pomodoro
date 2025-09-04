@@ -129,7 +129,8 @@ padding: 0;
 /* SETTINGS STYLES */
 
 .settings-container{
-  width: fit-content;
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0;
 }
