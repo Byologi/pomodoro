@@ -39,6 +39,7 @@ export function App() {
     setSettings(false);
 
     setFontSelected(tempFontSelected);
+
     if (tempFontSelected === '1') {
       document.body.style.fontFamily = '';
     } else if (tempFontSelected === '2') {
@@ -47,7 +48,7 @@ export function App() {
       document.body.style.fontFamily = 'sans-serif';
     }
 
-    window.alert("Changes")
+    window.alert("Changes initiated")
   };
 
 
