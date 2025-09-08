@@ -144,16 +144,16 @@ padding: 0;
 @media (max-width: 480px) {
   .settings .break-types {
     display: flex;
-    flex-wrap: wrap;        /* allow wrapping */
-    gap: 10px;              /* spacing between buttons */
-    justify-content: center; /* center all items on each line */
-    padding: 0;             /* remove side padding that causes misalignment */
+    flex-wrap: wrap;      
+    gap: 10px;              
+    justify-content: center; 
+    padding: 0;             
     box-sizing: border-box;
   }
 
   .settings .break-types input {
-    width: 100px;           /* keep original size */
-    padding: 8px;           /* optional smaller padding */
+    width: 100px;           
+    padding: 8px;          
     font-size: 14px;
     box-sizing: border-box;
   }
@@ -326,4 +326,30 @@ padding: 0;
 }
 #pomodoro-1:focus, #short-break-2:focus, #long-break-3:focus{
   border-color: white;
+}
+
+
+.settings-container {
+  position: relative; /* make it the positioning context */
+}
+
+.apply-button {
+  position: absolute;
+  bottom: 1rem;             /* distance from bottom */
+  left: 50%;
+  transform: translateX(-50%); /* center horizontally */
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.apply-button button{
+  background-color: rgb(236, 155, 155);
+  border-color: transparent;
+  border-radius: 25px;
+  height: 50px;
+  width: 130px;
+  color: white;
+  font-weight: bold;
 }

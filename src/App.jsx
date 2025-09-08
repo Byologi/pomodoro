@@ -13,6 +13,10 @@ export function App() {
   const [shortBreak, setShortBreak] = useState(5);
   const [longBreak, setLongBreak] = useState(15);
 
+  const [tempPomodoro, setTempPomodoro] = useState(pomodoro);
+  const [tempShortBreak, setTempShortBreak] = useState(shortBreak);
+  const [tempLongBreak, setTempLongBreak] = useState(longBreak);
+
   const [inputColor, setInputColor] = useState('');
   const [clockColor, setClockColor] = useState('');
   const [timerColor, setTimerColor] = useState('');
@@ -20,7 +24,33 @@ export function App() {
   const [checkColor, setCheckColor] = useState('1');
   const [fontSelected, setFontSelected] = useState('1');
 
+  const [tempFontSelected, setTempFontSelected] = useState(fontSelected)
+
   const alarmRef = useRef(null);
+
+  const handleApply = () => {
+    setPomodoro(tempPomodoro);
+    setShortBreak(tempShortBreak);
+    setLongBreak(tempLongBreak);
+
+    setMin(tempPomodoro);
+    setSec(0);
+    setStartPause(false);
+    setSettings(false);
+
+    setFontSelected(tempFontSelected);
+    if (tempFontSelected === '1') {
+      document.body.style.fontFamily = '';
+    } else if (tempFontSelected === '2') {
+      document.body.style.fontFamily = 'monospace';
+    } else if (tempFontSelected === '3') {
+      document.body.style.fontFamily = 'sans-serif';
+    }
+
+    window.alert("Changes")
+  };
+
+
 
   useEffect(() => {
     let interval;
@@ -39,9 +69,9 @@ export function App() {
             setStartPause(false);
 
             if (alarmRef.current) {
-              try{
+              try {
                 alarmRef.current.play();
-              } catch(err){
+              } catch (err) {
                 console.log('Audio play blocked. User Interaction needed')
               }
             }
@@ -70,7 +100,7 @@ export function App() {
 
   return (
     <>
-      <audio ref={alarmRef} src="/alarm.wav" preload='auto'/>
+      <audio ref={alarmRef} src="/alarm.wav" preload='auto' />
       <div>
         {!settings && <div className="home-page">
           <div className="home">
@@ -178,11 +208,12 @@ export function App() {
                     pomodoro
                   </div>
 
-                  <input style={{ backgroundColor: `${inputColor}` }} value={pomodoro > 60 ? 60 : pomodoro < 1 ? 1 : pomodoro} type="number" onChange={(e) => {
-                    setPomodoro(e.target.value);
-
-                    setMin(e.target.value);
-                  }} />
+                  <input
+                    style={{ backgroundColor: `${inputColor}` }}
+                    type="number"
+                    value={tempPomodoro > 60 ? 60 : tempPomodoro}
+                    onChange={(e) => setTempPomodoro(Number(e.target.value))}
+                  />
                 </div>
 
                 <div className="short-break">
@@ -190,11 +221,12 @@ export function App() {
                     short break
                   </div>
 
-                  <input style={{ backgroundColor: `${inputColor}` }} value={shortBreak > 60 ? 60 : shortBreak < 1 ? 1 : shortBreak} type="number" onChange={(e) => {
-                    setShortBreak(e.target.value);
-
-                    setMin(e.target.value);
-                  }} />
+                  <input
+                    style={{ backgroundColor: `${inputColor}` }}
+                    type="number"
+                    value={tempShortBreak > 60 ? 60 : tempShortBreak}
+                    onChange={(e) => setTempShortBreak(Number(e.target.value))}
+                  />
                 </div>
 
                 <div className="long-break">
@@ -202,11 +234,12 @@ export function App() {
                     long break
                   </div>
 
-                  <input style={{ backgroundColor: `${inputColor}` }} value={longBreak > 60 ? 60 : longBreak < 1 ? 1 : longBreak} type="number" onChange={(e) => {
-                    setLongBreak(e.target.value);
-
-                    setMin(e.target.value);
-                  }} />
+                  <input
+                    style={{ backgroundColor: `${inputColor}` }}
+                    type="number"
+                    value={tempLongBreak > 60 ? 60 : tempLongBreak}
+                    onChange={(e) => setTempLongBreak(Number(e.target.value))}
+                  />
                 </div>
               </div>
             </div>
@@ -217,30 +250,29 @@ export function App() {
               </div>
               <div className='font-types'>
                 <div className="fonts">
-                  <div id={`first-font-${fontSelected}`} className="font-1" onClick={() => {
-                    document.body.style.fontFamily = '';
-
-                    setFontSelected('1');
-
-                  }}>
+                  <div
+                    id={`first-font-${tempFontSelected}`}
+                    className="font-1"
+                    onClick={() => setTempFontSelected('1')}
+                  >
                     Aa
                   </div>
 
-                  <div id={`second-font-${fontSelected}`} style={{ fontFamily: 'monospace' }} className="font-2" onClick={() => {
-                    document.body.style.fontFamily = 'monospace';
-
-                    setFontSelected('2');
-
-                  }}>
+                  <div
+                    id={`second-font-${tempFontSelected}`}
+                    style={{ fontFamily: 'monospace' }}
+                    className="font-2"
+                    onClick={() => setTempFontSelected('2')}
+                  >
                     Aa
                   </div>
 
-                  <div style={{ fontFamily: 'sans-serit' }} id={`third-font-${fontSelected}`} className="font-3" onClick={() => {
-                    document.body.style.fontFamily = 'sans-serit';
-
-                    setFontSelected('3');
-
-                  }}>
+                  <div
+                    id={`third-font-${tempFontSelected}`}
+                    style={{ fontFamily: 'sans-serif' }}
+                    className="font-3"
+                    onClick={() => setTempFontSelected('3')}
+                  >
                     Aa
                   </div>
                 </div>
@@ -308,6 +340,12 @@ export function App() {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className='apply-button'>
+              <button onClick={handleApply}>
+                Apply
+              </button>
+
             </div>
           </div>
         </div>}
