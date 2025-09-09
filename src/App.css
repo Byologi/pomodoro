@@ -62,6 +62,7 @@ padding: 0;
 .clock-container{
   width: fit-content;
   margin: 0 auto;
+  position: relative;
 }
 
 
@@ -361,10 +362,10 @@ padding: 0;
 
 .circular-progress {
   position: absolute;
-  top: 50%;          
+  top: 61%;          
   left: 50%;          
   transform: translate(-50%, -60%); 
-  width: 35%;
+  width: 95%;
   height: 111%;
   display: flex;
   align-items: center;
@@ -374,141 +375,6 @@ padding: 0;
 
 .circular-progress svg {
   width: 100%;
-  height: 100%;body{
-  margin: 0;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-color: rgb(10, 17, 48);
-}
-
-button, svg{
-  cursor: pointer;
-  color: black;
-  white-space: nowrap;
-}
-
-.home-page{
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: antiquewhite;
-  padding: 0;
-}
-
-@media(max-width: 768px){
-  .home-page{
-    padding: 20px;
-  }
-}
-
-.home-page .home #txt{
-  font-size: 50px;
-  margin: 30px 0;
-  font-weight: bold;
-  margin-bottom: 30;
-  margin-top: 15px;
-}
-
-.home-page .timers{
-  background-color: rgb(34, 23, 77);
-  padding: 10px;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  border-radius: 10px;
-  margin-bottom: 50px;
-}
-
-.home-page .timers button{
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  background-color: transparent;
-  color: white;
-}
-
-.clock-container{
-  width: fit-content;
-  margin: 0 auto;
-  position: relative;
-}
-
-#pomodoro-1, #short-break-2, #long-break-3{
-  background-color:  rgb(222, 134, 122);
-  border: 2px solid rgb(34, 23, 77);
-  color: black;
-}
-
-.home-page .clock{
-  width: 250px;
-  height: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(34, 23, 77);
-  padding: 50px;
-  border-radius: 50%;
-  font-weight: bold;
-  margin-bottom: 40px;
-  margin-top: 50px;
-  box-shadow: 0 0 25px 10px rgb(143, 130, 196);
-}
-
-.home-page .count-down{
-  font-size: 100px;
-  margin-bottom: 50px;
-}
-
-.home-page .ctrl span{
-  cursor: pointer;
-  font-size: 20px;
-  letter-spacing: 20px;  
-}
-
-.home-page .ctrl span {
-  display: inline-block; 
-  transition: color 0.2s ease;
-}
-
-.home-page .ctrl span:hover {
-  animation: popTwice 0.6s ease-in-out;
-}
-
-@keyframes popTwice {
-  0%   { transform: scale(1); }
-  25%  { transform: scale(1.2); }
-  50%  { transform: scale(1); }
-  75%  { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
-
-.home-page #settings-icon{
-  background-color:transparent;
-  padding: 10px;
-  border-radius: 50%;
-  color: white;
-  margin-top: 20px;
-}
-
-.circular-progress svg {
-  width: 100%;
   height: 100%;
-  transform: rotate(-90deg);
-}
-
-.progress-ring__circle {
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-  stroke-dasharray: 1130; /* circumference of circle = 2πr ≈ 2 * 3.1416 * 180 */
-  stroke-dashoffset: 1130;
-  transition: stroke-dashoffset 1s linear;
-}
-
 
 }
-
-
-
-
-
